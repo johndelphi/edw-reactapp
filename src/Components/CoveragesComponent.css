@@ -1,0 +1,44 @@
+.coverages-table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.coverages-table td,
+.coverages-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.coverages-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #f2f2f2;
+}
+
+.coverages-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.coverages-table tr:hover {
+    background-color: #ddd;
+}
+
+.coverages-table th:first-child,
+.coverages-table td:first-child {
+    width: 25%;
+}
+
+.coverages-table th:last-child,
+.coverages-table td:last-child {
+    width: 15%;
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #c60000;
+}

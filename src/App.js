@@ -1,17 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-import WelcomeMesage from './Components/WelcomeMessageCompenet';
-import WelcomeMessageClassComponent from './Components/WelcomeMessageClassComponent';
+import React, { useState } from "react";
+import AuthenticateComponent from "./Components/AuthenticateComponent";
+import CoveragesComponent from "./Components/CoveragesComponent";
 
 function App() {
+    const [token, setToken] = useState("");
+
     return (
-
-        <div className="App" >
-            <WelcomeMesage />
-            <WelcomeMessageClassComponent />
-
-
-
+        <div className="App">
+            {!token ? (
+                <AuthenticateComponent onToken={setToken} />
+            ) : (
+                <CoveragesComponent token={token} />
+            )}
         </div>
     );
 }
