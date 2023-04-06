@@ -3,7 +3,7 @@ import AuthenticateComponent from "./Components/AuthenticateComponent";
 import CoveragesComponent from "./Components/CoveragesComponent";
 
 function App() {
-    const [token, setToken] = useState("");
+    const [token, setToken] = useState(localStorage.getItem("token") || "");
 
     return (
         <div className="App">
@@ -17,3 +17,4 @@ function App() {
 }
 
 export default App;
+
