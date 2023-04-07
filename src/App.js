@@ -3,18 +3,22 @@ import AuthenticateComponent from "./Components/AuthenticateComponent";
 import CoveragesComponent from "./Components/CoveragesComponent";
 
 function App() {
-    const [token, setToken] = useState(localStorage.getItem("token") || "");
+    const [token, setToken] = useState(getStoredToken());
 
-    return (
-        <div className="App">
-            {!token ? (
-                <AuthenticateComponent onToken={setToken} />
-            ) : (
-                <CoveragesComponent token={token} />
-            )}
-        </div>
-    );
+    function getStoredToken() {
+        const storedToken = localStorage.getItem("token");
+        return storedToken || "";
+    }
+
+    function renderContent() {
+        if (token) {
+            return <CoveragesComponent token={token} />;
+        } else {
+            return <AuthenticateComponent onToken={setToken} />;
+        }
+    }
+
+    return <div className="App">{renderContent()}</div>;
 }
 
 export default App;
-
