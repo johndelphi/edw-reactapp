@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AuthenticateComponent from "./Components/AuthenticateComponent";
 import CoveragesComponent from "./Components/CoveragesComponent";
+import PartySearch from "./Components/PartySearchComponent";
 
 function App() {
     const [token, setToken] = useState(getStoredToken());
