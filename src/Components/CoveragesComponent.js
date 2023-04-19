@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import ClhEdwApi from "../ClhEdwApi";
 import "./CoveragesComponent.css";
 import { Navbar, Nav, Button } from "react-bootstrap";
+import PartySearch from "./PartySearchComponent";
+
 
 
 const CoveragesComponent = ({ token }) => {
@@ -80,7 +82,6 @@ const CoveragesComponent = ({ token }) => {
                     ))}
                 </tbody>
             </table>
-
         </div>
     );
 };
