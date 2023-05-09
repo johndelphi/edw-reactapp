@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import ClhEdwApi from "../ClhEdwApi";
 import "./CoveragesComponent.css";
 import Navigationbar from "./Navbar";
-import { Navbar, Nav, Button } from "react-bootstrap";
+
 
 
 const CoveragesComponent = ({ token }) => {
@@ -33,10 +33,7 @@ const CoveragesComponent = ({ token }) => {
         fetchData();
     }, [fetchData]);
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        window.location.reload(); // Refresh the page after logging out
-    };
+
     return (
         <div>
             <Navigationbar />

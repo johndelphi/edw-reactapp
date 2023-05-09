@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Navbar, Nav } from "react-bootstrap";
 import { Button, Container } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+
 import CoveragesComponent from "./CoveragesComponent";
 
 const Navigationbar = () => {
@@ -17,10 +17,10 @@ const Navigationbar = () => {
                 <Navbar.Collapse className="justify-content-end">
                     <Nav>
                         <Nav.Item>
-                            <NavLink exact to="/" component={CoveragesComponent} className="nav-link text-danger">Coverages</NavLink>
+                            <NavLink exact to="/" component={CoveragesComponent} className="nav-link">Coverages</NavLink>
                         </Nav.Item>
                         <Nav.Item>
-                            <NavLink to="/contact" className="nav-link text-danger">PartiesSearch</NavLink>
+                            <NavLink to="/contact" className="nav-link ">PartiesSearch</NavLink>
                         </Nav.Item>
                         <Nav.Item>
                             <Button variant="danger" onClick={handleLogout}>Logout</Button>
