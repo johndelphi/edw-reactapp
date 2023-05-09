@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AuthenticateComponent from "./Components/AuthenticateComponent";
+import Navigationbar from "./Components/Navbar";
 import CoveragesComponent from "./Components/CoveragesComponent";
+import PartySearchComponent from "./Components/PartySearchComponent";
 
 function App() {
-
   const [token, setToken] = useState(getStoredToken());
 
   function getStoredToken() {
@@ -13,7 +15,15 @@ function App() {
 
   function renderContent() {
     if (token) {
-      return <CoveragesComponent token={token} />;
+      return (
+        <Router>
+          <Navigationbar />
+          <Routes>
+            <Route path="/" element={<CoveragesComponent token={token} />} />
+            <Route path="/party-search" element={<PartySearchComponent />} />
+          </Routes>
+        </Router>
+      );
     } else {
       return <AuthenticateComponent onToken={setToken} />;
     }

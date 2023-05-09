@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import ClhEdwApi from "../ClhEdwApi";
 import "./CoveragesComponent.css";
-import Navigationbar from "./Navbar";
+
 
 
 
@@ -36,7 +36,7 @@ const CoveragesComponent = ({ token }) => {
 
     return (
         <div>
-            <Navigationbar />
+
 
 
             <h1>Coverages</h1>
