@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
-import { Grid, GridColumn as Column } from '@progress/kendo-react-grid';
-import { Input } from '@progress/kendo-react-inputs';
+import { Form, Button, Table } from "react-bootstrap";
 
 import ClhEdwApi from "../ClhEdwApi";
 
@@ -30,11 +28,19 @@ const PartySearchComponent = () => {
             <Form onSubmit={handleSearch} className="m-5">
                 <Form.Group controlId="name">
                     <Form.Label>Name</Form.Label>
-                    <Input value={name} onChange={(e) => setName(e.target.value)} />
+                    <Form.Control
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
                 </Form.Group>
                 <Form.Group controlId="npi">
                     <Form.Label>NPI</Form.Label>
-                    <Input value={npi} onChange={(e) => setNpi(e.target.value)} />
+                    <Form.Control
+                        type="text"
+                        value={npi}
+                        onChange={(e) => setNpi(e.target.value)}
+                    />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Search
@@ -42,25 +48,30 @@ const PartySearchComponent = () => {
             </Form>
 
             {parties.length > 0 && (
-                <Grid
-                    data={parties}
-                    sortable={true}
-                    filterable={true}
-                    pageable={true}
-                >
-                    <Column field="partyId" title="Party ID" />
-                    <Column field="name" title="Name" />
-                    <Column field="partyNumber" title="Party Number" />
-                    <Column field="address" title="Address" />
-                    <Column field="active" title="Active" />
-                    <Column
-                        field="policyNumbers"
-                        title="Policies"
-                        cell={(props) => {
-                            return props.dataItem.policyNumbers.join(", ");
-                        }}
-                    />
-                </Grid>
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>Party ID</th>
+                            <th>Name</th>
+                            <th>Party Number</th>
+                            <th>Address</th>
+                            <th>Active</th>
+                            <th>Policies</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {parties.map((party) => (
+                            <tr key={party.partyId}>
+                                <td>{party.partyId}</td>
+                                <td>{party.name}</td>
+                                <td>{party.partyNumber}</td>
+                                <td>{party.address}</td>
+                                <td>{party.active ? "Yes" : "No"}</td>
+                                <td>{party.policyNumbers.join(", ")}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </Table>
             )}
         </div>
     );
