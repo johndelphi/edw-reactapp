@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import ClhEdwApi from "../ClhEdwApi";
 import "./CoveragesComponent.css";
+import Navigationbar from "./Navbar";
 import { Navbar, Nav, Button } from "react-bootstrap";
 
 
@@ -38,12 +39,8 @@ const CoveragesComponent = ({ token }) => {
     };
     return (
         <div>
-            <Navbar bg="light">
-                <Nav className="mr-auto">
-                    <Button variant="outline-primary" onClick={handleLogout}>Logout</Button>
-                    {/* <Button variant="outline-secondary" onClick={() => { localStorage.removeItem("token"); }}>Remove Token</Button> */}
-                </Nav>
-            </Navbar>
+            <Navigationbar />
+
 
             <h1>Coverages</h1>
 
